@@ -1,0 +1,31 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-native-dependencies'
+
+android {
+    compileSdkVersion 20
+    buildToolsVersion "20.0.0"
+
+    defaultConfig {
+        applicationId "com.inappstudios.snappdbtest"
+        minSdkVersion 15
+        targetSdkVersion 20
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.google.code.gson:gson:2.2.+'
+    compile 'com.snappydb:snappydb-api:0.2+'
+}
+
+native_dependencies {
+    artifact 'com.snappydb:snappydb-native:0.2+'
+}
